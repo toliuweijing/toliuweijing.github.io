@@ -33,14 +33,14 @@ object Res {
     }
 
     object String {
-        const val NAME = "Stefan Jovanovic"
+        const val NAME = "Jim(Weijing) Liu"
         const val PROFESSION = "Kotlin Multiplaform Developer"
         const val ABOUT_ME =
             "Lorem ipsum dolor sit amet, nisl tempus lorem adipiscing elit. Donec sollicitudin blandit tellus, ac sagittis ligula egestas consequat. Lorem ipsum dolor sit amet."
         const val BUTTON_TEXT = "Get in touch"
         const val ROBOTO_CONDENSED = "RobotoCondensedBold"
         const val ROBOTO_REGULAR = "RobotoRegular"
-        const val MY_EMAIL = "mailto:stefan.jovanavich@gmail.com"
+        const val MY_EMAIL = "mailto:weijing.liu@nyu.com"
         const val SAVED_THEME = "theme"
     }
 

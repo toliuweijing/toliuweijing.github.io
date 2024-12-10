@@ -1,18 +1,34 @@
 package com.weijing.portfolio.web.pages
 
 import androidx.compose.runtime.*
+import com.varabyte.kobweb.compose.css.functions.LinearGradient
+import com.varabyte.kobweb.compose.css.functions.linearGradient
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.backgroundImage
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.core.Page
+import com.weijing.portfolio.web.components.ProfileCard
+import com.weijing.portfolio.web.utils.Res
 import org.jetbrains.compose.web.dom.Text
 
 @Page
 @Composable
 fun HomePage() {
-    // TODO: Replace the following with your own content
-    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text("THIS PAGE INTENTIONALLY LEFT BLANK")
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .backgroundImage(
+                linearGradient(
+                    dir = LinearGradient.Direction.ToRight,
+                    from = Res.Theme.GRADIENT_ONE.color,
+                    to = Res.Theme.GRADIENT_TWO.color,
+                )
+            )
+        ,
+        contentAlignment = Alignment.Center,
+    ) {
+        ProfileCard()
     }
 }
