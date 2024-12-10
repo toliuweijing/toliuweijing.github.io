@@ -52,4 +52,8 @@ object Res {
         const val ICON_SIZE = 24
         const val ICON_SIZE_LG = 32
     }
+
+    object Url {
+        const val LINKED_IN = "https://www.linkedin.com/in/weijingliu/"
+    }
 }

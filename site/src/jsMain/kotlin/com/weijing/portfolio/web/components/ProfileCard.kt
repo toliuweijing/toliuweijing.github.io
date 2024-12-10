@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
+import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
@@ -95,7 +96,9 @@ fun LeftCard(breakpoint: Breakpoint) {
                 .opacity(50.percent)
         )
         Button(
-            modifier = ExpandableButtonStyle.toModifier().margin(topBottom = 30.px),
+            modifier =
+                ExpandableButtonStyle.toModifier()
+                    .margin(topBottom = 30.px),
             onClick = {
                 window.location.href = Res.String.MY_EMAIL
                 println(Res.String.MY_EMAIL)
@@ -106,6 +109,12 @@ fun LeftCard(breakpoint: Breakpoint) {
                 modifier = Modifier.margin(right = 8.px)
             )
             Text(Res.String.BUTTON_TEXT)
+        }
+        Row(
+            modifier = Modifier
+                .margin(bottom = 30.px),
+        ) {
+            IconButton(icon = Res.Icon.GITHUB, url = Res.Url.LINKED_IN)
         }
     }
 }
