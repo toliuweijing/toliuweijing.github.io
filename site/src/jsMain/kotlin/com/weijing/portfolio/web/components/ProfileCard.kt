@@ -1,8 +1,6 @@
 package com.weijing.portfolio.web.components
 
 import androidx.compose.runtime.Composable
-import com.varabyte.kobweb.compose.css.ObjectFit
-import com.varabyte.kobweb.compose.css.VerticalAlign
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -11,33 +9,29 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
-import com.varabyte.kobweb.compose.ui.modifiers.boxShadow
 import com.varabyte.kobweb.compose.ui.modifiers.color
-import com.varabyte.kobweb.compose.ui.modifiers.fillMaxHeight
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
 import com.varabyte.kobweb.compose.ui.modifiers.height
 import com.varabyte.kobweb.compose.ui.modifiers.lineHeight
 import com.varabyte.kobweb.compose.ui.modifiers.margin
-import com.varabyte.kobweb.compose.ui.modifiers.objectFit
 import com.varabyte.kobweb.compose.ui.modifiers.opacity
 import com.varabyte.kobweb.compose.ui.modifiers.padding
-import com.varabyte.kobweb.compose.ui.modifiers.verticalAlign
 import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.compose.ui.thenIf
 import com.varabyte.kobweb.silk.components.forms.Button
-import com.varabyte.kobweb.silk.components.forms.ButtonSize
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.layout.HorizontalDivider
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
-import com.varabyte.kobweb.silk.components.layout.Surface
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
+import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
+import com.weijing.portfolio.web.styles.ExpandableButtonStyle
 import com.weijing.portfolio.web.utils.Res
-import org.jetbrains.compose.web.attributes.InputType
+import kotlinx.browser.window
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Text
@@ -60,11 +54,6 @@ fun ProfileCard() {
             )
             .borderRadius(Res.Dimens.BORDER_RADIUS.px)
             .backgroundColor(Colors.White)
-//            .boxShadow(
-//                color = Colors.White,
-//                blurRadius = 2.px,
-//                spreadRadius = 2.px,
-//            )
             .padding(all = 12.px)
     ) {
         LeftCard(breakpoint)
@@ -106,8 +95,9 @@ fun LeftCard(breakpoint: Breakpoint) {
                 .opacity(50.percent)
         )
         Button(
-            modifier = Modifier.margin(top = 30.px),
+            modifier = ExpandableButtonStyle.toModifier().margin(topBottom = 30.px),
             onClick = {
+                window.location.href = Res.String.MY_EMAIL
                 println(Res.String.MY_EMAIL)
             },
         ) {
@@ -135,7 +125,6 @@ fun RightCard(breakpoint: Breakpoint) {
             src = Res.Image.PROFILE_PHOTO,
             modifier = Modifier
                 .fillMaxWidth()
-//                .objectFit(ObjectFit.Cover)
         )
     }
 }
