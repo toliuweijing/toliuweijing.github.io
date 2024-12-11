@@ -103,7 +103,7 @@ fun LeftCard(breakpoint: Breakpoint) {
             modifier =
                 ExpandableButtonStyle.toModifier()
                     .background(Res.Theme.BLUE.color)
-                    .margin(topBottom = 30.px),
+                    .margin(top = 30.px),
             onClick = {
                 window.location.href = Res.String.MY_EMAIL
                 println(Res.String.MY_EMAIL)
@@ -117,8 +117,8 @@ fun LeftCard(breakpoint: Breakpoint) {
                 text = Res.String.BUTTON_TEXT,
                 modifier = Modifier
                     .color(Colors.White)
-                    .fontFamily(Res.String.ROBOTO_REGULAR)
-                    .fontSize(FontSize.Small)
+//                    .fontFamily(Res.String.ROBOTO_REGULAR)
+                    .fontSize(FontSize.Medium)
             )
         }
         Row(

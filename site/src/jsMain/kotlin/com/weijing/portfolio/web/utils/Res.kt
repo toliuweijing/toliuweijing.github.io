@@ -37,7 +37,7 @@ object Res {
         const val NAME = "Jim(Weijing) Liu"
         const val PROFESSION = "Kotlin Multiplaform Developer"
         const val ABOUT_ME =
-            "Lorem ipsum dolor sit amet, nisl tempus lorem adipiscing elit. Donec sollicitudin blandit tellus, ac sagittis ligula egestas consequat. Lorem ipsum dolor sit amet."
+            "Specializing in Android native apps and Kotlin Multiplatform development. Experienced at Facebook and Snapchat, building innovative mobile camera products."
         const val BUTTON_TEXT = "Get in touch"
         const val ROBOTO_CONDENSED = "RobotoCondensedBold"
         const val ROBOTO_REGULAR = "RobotoRegular"
