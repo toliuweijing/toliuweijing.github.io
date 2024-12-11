@@ -18,6 +18,7 @@ object Res {
     object Icon {
         const val EMAIL_LIGHT = "mail.svg"
         const val EMAIL_DARK = "mail_light.svg"
+        const val LINKED_IN = "linkedin-24.svg"
         const val GITHUB = "github.svg"
         const val GITHUB_LIGHT = "github_light.svg"
         const val INSTAGRAM = "instagram.svg"
@@ -55,5 +56,6 @@ object Res {
 
     object Url {
         const val LINKED_IN = "https://www.linkedin.com/in/weijingliu/"
+        const val GITHUB = "https://github.com/toliuweijing"
     }
 }

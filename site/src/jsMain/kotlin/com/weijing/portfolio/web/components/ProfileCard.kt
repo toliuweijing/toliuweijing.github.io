@@ -1,6 +1,7 @@
 package com.weijing.portfolio.web.components
 
 import androidx.compose.runtime.Composable
+import com.varabyte.kobweb.compose.css.FontSize
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -8,6 +9,7 @@ import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
+import com.varabyte.kobweb.compose.ui.modifiers.background
 import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.color
@@ -25,12 +27,14 @@ import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.layout.HorizontalDivider
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
+import com.varabyte.kobweb.silk.components.layout.Surface
 import com.varabyte.kobweb.silk.components.layout.numColumns
 import com.varabyte.kobweb.silk.components.text.SpanText
 import com.varabyte.kobweb.silk.style.breakpoint.Breakpoint
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.breakpoint.rememberBreakpoint
 import com.weijing.portfolio.web.styles.ExpandableButtonStyle
+import com.weijing.portfolio.web.styles.RotateButtonStyle
 import com.weijing.portfolio.web.utils.Res
 import kotlinx.browser.window
 import org.jetbrains.compose.web.css.percent
@@ -82,13 +86,13 @@ fun LeftCard(breakpoint: Breakpoint) {
             modifier = Modifier
                 .fontFamily(Res.String.ROBOTO_REGULAR)
         )
-        HorizontalDivider(
+        Surface(
             modifier = Modifier
-                .width(20.px)
-                .lineHeight(2.px)
-                .color(Res.Theme.LIGHT_BLUE.color)
-                .margin(all = 0.px)
-        )
+                .background(Res.Theme.BLUE.color)
+                .width(40.px)
+                .height(4.px)
+//                .align()
+        ) {}
         SpanText(
             text = Res.String.ABOUT_ME,
             modifier = Modifier
@@ -98,6 +102,7 @@ fun LeftCard(breakpoint: Breakpoint) {
         Button(
             modifier =
                 ExpandableButtonStyle.toModifier()
+                    .background(Res.Theme.BLUE.color)
                     .margin(topBottom = 30.px),
             onClick = {
                 window.location.href = Res.String.MY_EMAIL
@@ -108,13 +113,28 @@ fun LeftCard(breakpoint: Breakpoint) {
                 src = Res.Icon.EMAIL_LIGHT,
                 modifier = Modifier.margin(right = 8.px)
             )
-            Text(Res.String.BUTTON_TEXT)
+            SpanText(
+                text = Res.String.BUTTON_TEXT,
+                modifier = Modifier
+                    .color(Colors.White)
+                    .fontFamily(Res.String.ROBOTO_REGULAR)
+                    .fontSize(FontSize.Small)
+            )
         }
         Row(
-            modifier = Modifier
-                .margin(bottom = 30.px),
+            modifier = Modifier.margin(bottom = 30.px),
+            horizontalArrangement = Arrangement.spacedBy(10.px, Alignment.Start)
         ) {
-            IconButton(icon = Res.Icon.GITHUB, url = Res.Url.LINKED_IN)
+            IconButton(
+                modifier = RotateButtonStyle.toModifier(),
+                icon = Res.Icon.GITHUB,
+                url = Res.Url.GITHUB,
+            )
+            IconButton(
+                modifier = RotateButtonStyle.toModifier(),
+                icon = Res.Icon.LINKED_IN,
+                url = Res.Url.LINKED_IN,
+            )
         }
     }
 }
