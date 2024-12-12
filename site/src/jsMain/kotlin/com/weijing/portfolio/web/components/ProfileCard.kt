@@ -13,6 +13,8 @@ import com.varabyte.kobweb.compose.ui.modifiers.background
 import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.color
+import com.varabyte.kobweb.compose.ui.modifiers.fillMaxHeight
+import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
@@ -23,6 +25,8 @@ import com.varabyte.kobweb.compose.ui.modifiers.opacity
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.width
 import com.varabyte.kobweb.compose.ui.thenIf
+import com.varabyte.kobweb.navigation.OpenLinkStrategy
+import com.varabyte.kobweb.navigation.open
 import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.graphics.Image
 import com.varabyte.kobweb.silk.components.layout.HorizontalDivider
@@ -37,6 +41,7 @@ import com.weijing.portfolio.web.styles.ExpandableButtonStyle
 import com.weijing.portfolio.web.styles.RotateButtonStyle
 import com.weijing.portfolio.web.utils.Res
 import kotlinx.browser.window
+import org.jetbrains.compose.web.css.keywords.auto
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Text
@@ -105,7 +110,7 @@ fun LeftCard(breakpoint: Breakpoint) {
                     .background(Res.Theme.BLUE.color)
                     .margin(top = 30.px),
             onClick = {
-                window.location.href = Res.String.MY_EMAIL
+                window.open(href = Res.String.MY_EMAIL, strategy = OpenLinkStrategy.IN_NEW_TAB)
                 println(Res.String.MY_EMAIL)
             },
         ) {
@@ -117,7 +122,6 @@ fun LeftCard(breakpoint: Breakpoint) {
                 text = Res.String.BUTTON_TEXT,
                 modifier = Modifier
                     .color(Colors.White)
-//                    .fontFamily(Res.String.ROBOTO_REGULAR)
                     .fontSize(FontSize.Medium)
             )
         }
@@ -147,13 +151,14 @@ fun RightCard(breakpoint: Breakpoint) {
             .thenIf(
                 condition = breakpoint > Breakpoint.MD,
                 other = Modifier.height((Res.Dimens.MAX_CARD_HEIGHT - 24).px)
-            ),
+            )
+        ,
         contentAlignment = Alignment.Center,
     ) {
         Image(
             src = Res.Image.PROFILE_PHOTO,
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxHeight()
         )
     }
 }

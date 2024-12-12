@@ -4,15 +4,10 @@ import com.varabyte.kobweb.compose.ui.graphics.Color
 
 object Res {
     enum class Theme(val color: Color) {
-        BLUE(color = Color.rgb(r = 33, g = 150, b = 243)),
-        LIGHT_BLUE(color = Color.rgb(r = 168, g = 236, b = 255)),
-        DARK_BLUE(color = Color.rgb(r = 34, g = 63, b = 94)),
-        SOCIAL_ICON_BACKGROUND_LIGHT(color = Color.rgb(r = 230, g = 230, b = 230)),
-        SOCIAL_ICON_BACKGROUND_DARK(color = Color.rgb(r = 48, g = 82, b = 118)),
-        GRADIENT_ONE(color = Color.rgb(r = 161, g = 196, b = 253)),
-        GRADIENT_ONE_DARK(color = Color.rgb(r = 19, g = 38, b = 58)),
-        GRADIENT_TWO(color = Color.rgb(r = 194, g = 233, b = 251)),
-        GRADIENT_TWO_DARK(color = Color.rgb(r = 20, g = 46, b = 73))
+        BLUE(color = Color.rgb(r = 255, g = 175, b = 26)),
+        SOCIAL_ICON_BACKGROUND_LIGHT(color = Color.rgb(r = 255, g = 230, b = 184)),
+        GRADIENT_ONE(color = Color.rgb(r = 255, g = 222, b = 165)),
+        GRADIENT_TWO(color = Color.rgb(r = 255, g = 243, b = 219)),
     }
 
     object Icon {
@@ -30,18 +25,21 @@ object Res {
     }
 
     object Image {
-        const val PROFILE_PHOTO = "photo.jpg"
+//        const val PROFILE_PHOTO = "photo.jpg"
+        const val PROFILE_PHOTO = "photo.png"
     }
 
     object String {
         const val NAME = "Jim(Weijing) Liu"
         const val PROFESSION = "Kotlin Multiplaform Developer"
         const val ABOUT_ME =
-            "Specializing in Android native apps and Kotlin Multiplatform development. Experienced at Facebook and Snapchat, building innovative mobile camera products."
+            "Specialized in Android native app development and Kotlin Multiplatform. Proven track record at Facebook and Snapchat, creating innovative mobile solutions."
+//            "Experienced in crafting cutting-edge mobile camera experiences using Android Native and Kotlin Multiplatform. Proven track record at industry leaders like Facebook and Snapchat."
+//            "Specializing in Android native apps and Kotlin Multiplatform development. Experienced at Facebook and Snapchat, building innovative mobile camera products."
         const val BUTTON_TEXT = "Get in touch"
         const val ROBOTO_CONDENSED = "RobotoCondensedBold"
         const val ROBOTO_REGULAR = "RobotoRegular"
-        const val MY_EMAIL = "mailto:toliuweijing@gmail.com"
+        const val MY_EMAIL = "mailto:waiging.lau@gmail.com"
         const val SAVED_THEME = "theme"
     }
 

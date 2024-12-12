@@ -63,12 +63,12 @@ fun IconButton(
                     .filter(
                         brightness(0),
                         saturate(100.percent),
-                        invert(46.percent),
-                        sepia(97.percent),
-                        saturate(1741.percent),
-                        hueRotate(184.deg),
-                        brightness(96.percent),
-                        contrast(97.percent),
+                        invert(83.percent),
+                        sepia(49.percent),
+                        saturate(3690.percent),
+                        hueRotate(345.deg),
+                        brightness(103.percent),
+                        contrast(101.percent),
                     )
                     .size(iconSize),
                 src = icon,
