@@ -21,7 +21,7 @@ object Res {
     }
 
     object String {
-        const val NAME = "Jim(Weijing) Liu"
+        const val NAME = "Jim (Weijing) Liu"
         const val PROFESSION = "Kotlin Multiplaform Developer"
         const val ABOUT_ME =
             "Specialized in Android native app development and Kotlin Multiplatform. Proven track record at Facebook and Snapchat, creating innovative mobile solutions."
