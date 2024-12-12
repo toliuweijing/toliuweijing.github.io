@@ -2,6 +2,7 @@ package com.weijing.portfolio.web.components
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.FontSize
+import com.varabyte.kobweb.compose.css.ObjectFit
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -14,13 +15,12 @@ import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
 import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
 import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxHeight
-import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxWidth
 import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
 import com.varabyte.kobweb.compose.ui.modifiers.height
-import com.varabyte.kobweb.compose.ui.modifiers.lineHeight
 import com.varabyte.kobweb.compose.ui.modifiers.margin
+import com.varabyte.kobweb.compose.ui.modifiers.objectFit
 import com.varabyte.kobweb.compose.ui.modifiers.opacity
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.width
@@ -29,7 +29,6 @@ import com.varabyte.kobweb.navigation.OpenLinkStrategy
 import com.varabyte.kobweb.navigation.open
 import com.varabyte.kobweb.silk.components.forms.Button
 import com.varabyte.kobweb.silk.components.graphics.Image
-import com.varabyte.kobweb.silk.components.layout.HorizontalDivider
 import com.varabyte.kobweb.silk.components.layout.SimpleGrid
 import com.varabyte.kobweb.silk.components.layout.Surface
 import com.varabyte.kobweb.silk.components.layout.numColumns
@@ -41,10 +40,10 @@ import com.weijing.portfolio.web.styles.ExpandableButtonStyle
 import com.weijing.portfolio.web.styles.RotateButtonStyle
 import com.weijing.portfolio.web.utils.Res
 import kotlinx.browser.window
-import org.jetbrains.compose.web.css.keywords.auto
+import org.jetbrains.compose.web.css.CSSSizeValue
+import org.jetbrains.compose.web.css.CSSUnitLengthOrPercentage
 import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.dom.Text
 
 @Composable
 fun ProfileCard() {
@@ -55,8 +54,7 @@ fun ProfileCard() {
         numColumns = numColumns(base = 1, md = 2),
         modifier = Modifier
             .fillMaxWidth(
-                if (breakpoint <= Breakpoint.MD) 100.percent
-                else Res.Dimens.MAX_CARD_WIDTH.px
+                profileCardFillMaxWith(breakpoint)
             )
             .thenIf(
                 condition = breakpoint > Breakpoint.MD,
@@ -69,6 +67,15 @@ fun ProfileCard() {
         LeftCard(breakpoint)
         RightCard(breakpoint)
     }
+}
+
+private fun profileCardFillMaxWith(breakpoint: Breakpoint): CSSSizeValue<out CSSUnitLengthOrPercentage> {
+    val result = if (breakpoint <= Breakpoint.MD) 100.percent
+    else Res.Dimens.MAX_CARD_WIDTH.px.also {
+        println("fillMaxWidth")
+    }
+    println("profileCardFillMaxWith $breakpoint $result")
+    return result
 }
 
 @Composable
@@ -111,6 +118,7 @@ fun LeftCard(breakpoint: Breakpoint) {
                     .margin(top = 30.px),
             onClick = {
                 window.open(href = Res.String.MY_EMAIL, strategy = OpenLinkStrategy.IN_NEW_TAB)
+//                window.location.href = Res.String.MY_EMAIL
                 println(Res.String.MY_EMAIL)
             },
         ) {
@@ -151,13 +159,14 @@ fun RightCard(breakpoint: Breakpoint) {
             .thenIf(
                 condition = breakpoint > Breakpoint.MD,
                 other = Modifier.height((Res.Dimens.MAX_CARD_HEIGHT - 24).px)
-            )
-        ,
+            ),
         contentAlignment = Alignment.Center,
     ) {
         Image(
             src = Res.Image.PROFILE_PHOTO,
             modifier = Modifier
+                .objectFit(ObjectFit.Contain)
+                .fillMaxWidth()
                 .fillMaxHeight()
         )
     }
