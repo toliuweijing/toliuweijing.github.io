@@ -11,7 +11,6 @@ import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.core.Page
 import com.weijing.portfolio.web.components.ProfileCard
 import com.weijing.portfolio.web.utils.Res
-import org.jetbrains.compose.web.dom.Text
 
 @Page
 @Composable
@@ -22,8 +21,8 @@ fun HomePage() {
             .backgroundImage(
                 linearGradient(
                     dir = LinearGradient.Direction.ToRight,
-                    from = Res.Theme.GRADIENT_ONE.color,
-                    to = Res.Theme.GRADIENT_TWO.color,
+                    from = Res.Theme.HOME_PAGE_GRADIENT_ONE.color,
+                    to = Res.Theme.HOME_PAGE_GRADIENT_TWO.color,
                 )
             )
         ,

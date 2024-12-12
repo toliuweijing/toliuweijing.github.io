@@ -100,10 +100,9 @@ fun LeftCard(breakpoint: Breakpoint) {
         )
         Surface(
             modifier = Modifier
-                .background(Res.Theme.BLUE.color)
+                .background(Res.Theme.YELLOW.color)
                 .width(40.px)
                 .height(4.px)
-//                .align()
         ) {}
         SpanText(
             text = Res.String.ABOUT_ME,
@@ -114,16 +113,15 @@ fun LeftCard(breakpoint: Breakpoint) {
         Button(
             modifier =
                 ExpandableButtonStyle.toModifier()
-                    .background(Res.Theme.BLUE.color)
+                    .background(Res.Theme.YELLOW.color)
                     .margin(top = 30.px),
             onClick = {
                 window.open(href = Res.String.MY_EMAIL, strategy = OpenLinkStrategy.IN_NEW_TAB)
-//                window.location.href = Res.String.MY_EMAIL
                 println(Res.String.MY_EMAIL)
             },
         ) {
             Image(
-                src = Res.Icon.EMAIL_LIGHT,
+                src = Res.Icon.EMAIL,
                 modifier = Modifier.margin(right = 8.px)
             )
             SpanText(
